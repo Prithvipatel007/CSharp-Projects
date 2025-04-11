@@ -1,4 +1,4 @@
-using UnitConverterWebApp.Components;
+using WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

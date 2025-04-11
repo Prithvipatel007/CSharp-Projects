@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace UnitConverter.DesktopApp
+namespace DesktopApp
 {
     /// <summary>
     /// Interaction logic for App.xaml

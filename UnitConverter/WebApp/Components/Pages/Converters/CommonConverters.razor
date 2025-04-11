@@ -1,0 +1,19 @@
+﻿@page "/common-converter"
+<h3>Common Converters</h3>
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<p>Length 1</p>
+			<input @bind="Val" class="form-control"/>
+		</div>
+		<div class="col">
+			<p>Length 2</p>
+			<p>@Val</p>
+		</div>
+	</div>
+</div>
+
+@code {
+	public string Val { get; set; } = string.Empty;
+}
