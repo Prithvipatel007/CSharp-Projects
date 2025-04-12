@@ -1,4 +1,5 @@
-﻿using DesignPatterns.LiskovSubstitutionPrinciple;
+﻿using DesignPatterns.InterfaceSegregationPrinciple;
+using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using static DesignPatterns.OpenClosedPrinciple.OpenClosedPrinciple;
@@ -17,14 +19,15 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.LiskovSubstitutionPrinciple;
+        private static Pattern _Pattern = Pattern.InterfaceSegregationPrinciple;
 
         #region Enum for Patterns
         public enum Pattern
         {
             SingleResponsibilityPrinciple,
             OpenClosedPrinciple,
-            LiskovSubstitutionPrinciple
+            LiskovSubstitutionPrinciple,
+            InterfaceSegregationPrinciple
         }
         #endregion
 
@@ -35,7 +38,8 @@ namespace DesignPatterns
         {
             {Pattern.SingleResponsibilityPrinciple, SingleResponsibilityPrinciple },
             { Pattern.OpenClosedPrinciple, OpenClosedPrinciple },
-            { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple}
+            { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple},
+            { Pattern.InterfaceSegregationPrinciple, InterfaceSegregationPrinciple}
         };
 
         #endregion
@@ -127,6 +131,27 @@ namespace DesignPatterns
             sq.Width = 5;
             Console.WriteLine($"Area of Square : {Area(sq)}");
         }
+
+        #endregion
+
+        #region Interface Segregation Principle
+
+        private static void InterfaceSegregationPrinciple()
+        {
+            var printer = new Printer();
+            var scanner = new Scanner();
+            var fax = new FaxMachine();
+
+            printer.Print(new Document("Printer", "Printer Content"));
+            scanner.Scan(new Document("Scanner", "Scanner Content"));
+            fax.Fax(new Document("Fax", "Fax Content"));
+
+            var multiPrinter = new MultiPrinter(printer, scanner, fax);
+            multiPrinter.Print(new Document("MultiPrinter", "Printing Content"));
+            multiPrinter.Scan(new Document("MultiPrinter", "Scannning Content"));
+            multiPrinter.Fax(new Document("MultiPrinter", "Faxing Content"));
+        }
+
 
         #endregion
 
