@@ -1,4 +1,5 @@
-﻿using DesignPatterns.OpenClosedPrinciple.Filter;
+﻿using DesignPatterns.LiskovSubstitutionPrinciple;
+using DesignPatterns.OpenClosedPrinciple.Filter;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,13 +17,14 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.OpenClosedPrinciple;
+        private static Pattern _Pattern = Pattern.LiskovSubstitutionPrinciple;
 
         #region Enum for Patterns
         public enum Pattern
         {
             SingleResponsibilityPrinciple,
-            OpenClosedPrinciple
+            OpenClosedPrinciple,
+            LiskovSubstitutionPrinciple
         }
         #endregion
 
@@ -32,7 +34,8 @@ namespace DesignPatterns
         private static Dictionary<Pattern, Action> _PatternDict = new Dictionary<Pattern, Action>()
         {
             {Pattern.SingleResponsibilityPrinciple, SingleResponsibilityPrinciple },
-            { Pattern.OpenClosedPrinciple, OpenClosedPrinciple }
+            { Pattern.OpenClosedPrinciple, OpenClosedPrinciple },
+            { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple}
         };
 
         #endregion
@@ -108,6 +111,21 @@ namespace DesignPatterns
                 Console.WriteLine($" {item.Name} is Green and Medium");
             }
 
+        }
+
+        #endregion
+
+        #region Liskov Substitution Principle
+
+        public static int Area(Rectangle r) => r.Width * r.Height;
+        private static void LiskovSubstitutionPrinciple()
+        {
+            Rectangle rc = new Rectangle(5, 10);
+            Console.WriteLine($"Area of Rectangle : {Area(rc)}");
+
+            Rectangle sq = new Square();
+            sq.Width = 5;
+            Console.WriteLine($"Area of Square : {Area(sq)}");
         }
 
         #endregion
