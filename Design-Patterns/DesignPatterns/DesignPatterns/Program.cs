@@ -1,4 +1,5 @@
-﻿using DesignPatterns.InterfaceSegregationPrinciple;
+﻿using DesignPatterns.DependencyInversionPrinciple;
+using DesignPatterns.InterfaceSegregationPrinciple;
 using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
 using System;
@@ -19,7 +20,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.InterfaceSegregationPrinciple;
+        private static Pattern _Pattern = Pattern.DependencyInversionPrinciple;
 
         #region Enum for Patterns
         public enum Pattern
@@ -27,7 +28,8 @@ namespace DesignPatterns
             SingleResponsibilityPrinciple,
             OpenClosedPrinciple,
             LiskovSubstitutionPrinciple,
-            InterfaceSegregationPrinciple
+            InterfaceSegregationPrinciple,
+            DependencyInversionPrinciple
         }
         #endregion
 
@@ -36,10 +38,11 @@ namespace DesignPatterns
 
         private static Dictionary<Pattern, Action> _PatternDict = new Dictionary<Pattern, Action>()
         {
-            {Pattern.SingleResponsibilityPrinciple, SingleResponsibilityPrinciple },
+            { Pattern.SingleResponsibilityPrinciple, SingleResponsibilityPrinciple },
             { Pattern.OpenClosedPrinciple, OpenClosedPrinciple },
             { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple},
-            { Pattern.InterfaceSegregationPrinciple, InterfaceSegregationPrinciple}
+            { Pattern.InterfaceSegregationPrinciple, InterfaceSegregationPrinciple},
+            { Pattern.DependencyInversionPrinciple, DependencyInversionPrinciple}
         };
 
         #endregion
@@ -152,6 +155,28 @@ namespace DesignPatterns
             multiPrinter.Fax(new Document("MultiPrinter", "Faxing Content"));
         }
 
+
+        #endregion
+
+        #region Dependency Inversion Principle
+
+        private static void DependencyInversionPrinciple()
+        {
+            var parent = new Person { Name = "John" };
+            var child1 = new Person { Name = "Chris" };
+            var child2 = new Person { Name = "Anna" };
+
+            var Relationships = new Relationships();
+            Relationships.AddParentAndChild(parent, child1);
+            Relationships.AddParentAndChild(parent, child2);
+
+            // Now we want to perform the research. Basically, we want to take the low level module 
+            // and we want to somehow access it to a high level research module. 
+            // So, one of the ways - not the best way - is to simply allow the high level module to access some of the internals
+            // of the low level module by giving it the list of relations. 
+
+            new Research(Relationships);
+        }
 
         #endregion
 
