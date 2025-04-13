@@ -1,4 +1,5 @@
-﻿using DesignPatterns.DependencyInversionPrinciple;
+﻿using DesignPatterns.CreationalPatterns.BuilderPattern;
+using DesignPatterns.DependencyInversionPrinciple;
 using DesignPatterns.InterfaceSegregationPrinciple;
 using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
@@ -20,7 +21,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.DependencyInversionPrinciple;
+        private static Pattern _Pattern = Pattern.BuilderPatternWithRecursiveGenerics;
 
         #region Enum for Patterns
         public enum Pattern
@@ -29,7 +30,10 @@ namespace DesignPatterns
             OpenClosedPrinciple,
             LiskovSubstitutionPrinciple,
             InterfaceSegregationPrinciple,
-            DependencyInversionPrinciple
+            DependencyInversionPrinciple,
+            BuilderPattern,
+            BuilderPatternWithRecursiveGenerics,
+            StepwiseBuilderPattern,
         }
         #endregion
 
@@ -42,7 +46,10 @@ namespace DesignPatterns
             { Pattern.OpenClosedPrinciple, OpenClosedPrinciple },
             { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple},
             { Pattern.InterfaceSegregationPrinciple, InterfaceSegregationPrinciple},
-            { Pattern.DependencyInversionPrinciple, DependencyInversionPrinciple}
+            { Pattern.DependencyInversionPrinciple, DependencyInversionPrinciple},
+            { Pattern.BuilderPattern, BuilderPattern},
+            { Pattern.BuilderPatternWithRecursiveGenerics, BuilderPatternWithRecursiveGenerics},
+            { Pattern.StepwiseBuilderPattern, StepwiseBuilderPattern}
         };
 
         #endregion
@@ -177,6 +184,67 @@ namespace DesignPatterns
 
             new Research(Relationships);
         }
+
+        #endregion
+
+
+        #region Creational patterns
+
+        #region Builder Pattern
+        
+        private static void BuilderPattern()
+        {
+            var hello = "hello";
+
+            // We have this text and we want to turn it into a html paragraph. 
+            var sb = new StringBuilder();
+            sb.Append("<p>");
+            sb.Append(hello);
+            sb.Append("</p>");
+            Console.WriteLine(sb);
+
+            var words = new[] {"hello", "world" };
+            sb.Clear();
+
+            sb.Append("<ul>");
+            foreach(var word in words)
+            {
+                sb.AppendFormat($"<li>{word}</li>");
+            }
+            sb.Append("</ul>");
+
+            Console.WriteLine(sb);
+
+            /*
+             * With Builder
+             */
+            var builder = new HtmlBuilder("ul");
+            builder.AddChild("li", "Hello")
+                   .AddChild("li", "World");
+
+            Console.WriteLine(builder.ToString());
+        }
+
+        private static void BuilderPatternWithRecursiveGenerics()
+        {
+            var me = CreationalPatterns.BuilderPattern.Person.New
+                        .Called("Prithvi")
+                        .WorksAsA("Developer")
+                        .Build();
+
+            Console.WriteLine(me.ToString());
+        }
+
+        private static void StepwiseBuilderPattern()
+        {
+            var car = CarBuilder.Create()   // we get ISpecifyCarType
+                                .OfCarType(CarType.Crossover) // here, we get ISpecifyWheelType
+                                .WithWheels(19)  // here, we get IBuildCar
+                                .Build();  // Here we get car
+        }
+
+
+        #endregion
 
         #endregion
 
