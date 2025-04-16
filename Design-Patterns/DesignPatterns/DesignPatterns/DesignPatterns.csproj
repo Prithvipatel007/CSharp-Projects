@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreationalPatterns\BuilderPattern\BuilderPatterUsingGenerics.cs" />
+    <Compile Include="CreationalPatterns\BuilderPattern\FacetedBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\FunctionalBuilder.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\HtmlBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\StepwiseBuilderPattern.cs" />

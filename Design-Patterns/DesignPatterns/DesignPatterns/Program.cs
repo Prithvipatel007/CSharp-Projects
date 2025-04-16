@@ -34,6 +34,8 @@ namespace DesignPatterns
             BuilderPattern,
             BuilderPatternWithRecursiveGenerics,
             StepwiseBuilderPattern,
+            FunctionalBuilderPattern,
+            FacetedBuilderPattern,
         }
         #endregion
 
@@ -49,7 +51,10 @@ namespace DesignPatterns
             { Pattern.DependencyInversionPrinciple, DependencyInversionPrinciple},
             { Pattern.BuilderPattern, BuilderPattern},
             { Pattern.BuilderPatternWithRecursiveGenerics, BuilderPatternWithRecursiveGenerics},
-            { Pattern.StepwiseBuilderPattern, StepwiseBuilderPattern}
+            { Pattern.StepwiseBuilderPattern, StepwiseBuilderPattern},
+            { Pattern.FunctionalBuilderPattern, FunctionalBuilderPattern},
+            { Pattern.FacetedBuilderPattern, FacetedBuilderPattern}
+
         };
 
         #endregion
@@ -241,6 +246,19 @@ namespace DesignPatterns
                                 .OfCarType(CarType.Crossover) // here, we get ISpecifyWheelType
                                 .WithWheels(19)  // here, we get IBuildCar
                                 .Build();  // Here we get car
+        }
+
+        private static void FunctionalBuilderPattern()
+        {
+            var person = new FuncPersonBuilder()
+                            .WorkAs("Developer")
+                            .Called("Prithvi")
+                            .Build();
+        }
+
+        private static void FacetedBuilderPattern()
+        {
+
         }
 
 
