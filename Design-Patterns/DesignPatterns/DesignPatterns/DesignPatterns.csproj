@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreationalPatterns\BuilderPattern\BuilderCodingExercise.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\BuilderPatterUsingGenerics.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\FacetedBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\FunctionalBuilder.cs" />

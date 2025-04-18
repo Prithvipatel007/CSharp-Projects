@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static DesignPatterns.CreationalPatterns.BuilderPattern.FacetedBuilderPattern;
 using static DesignPatterns.OpenClosedPrinciple.OpenClosedPrinciple;
 
 namespace DesignPatterns
@@ -21,7 +22,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.BuilderPatternWithRecursiveGenerics;
+        private static Pattern _Pattern = Pattern.BuilderPatternCodingExercise;
 
         #region Enum for Patterns
         public enum Pattern
@@ -36,6 +37,7 @@ namespace DesignPatterns
             StepwiseBuilderPattern,
             FunctionalBuilderPattern,
             FacetedBuilderPattern,
+            BuilderPatternCodingExercise
         }
         #endregion
 
@@ -53,8 +55,8 @@ namespace DesignPatterns
             { Pattern.BuilderPatternWithRecursiveGenerics, BuilderPatternWithRecursiveGenerics},
             { Pattern.StepwiseBuilderPattern, StepwiseBuilderPattern},
             { Pattern.FunctionalBuilderPattern, FunctionalBuilderPattern},
-            { Pattern.FacetedBuilderPattern, FacetedBuilderPattern}
-
+            { Pattern.FacetedBuilderPattern, FacetedBuilderPattern},
+            { Pattern.BuilderPatternCodingExercise, BuilderPatternCodingExercise}
         };
 
         #endregion
@@ -174,9 +176,9 @@ namespace DesignPatterns
 
         private static void DependencyInversionPrinciple()
         {
-            var parent = new Person { Name = "John" };
-            var child1 = new Person { Name = "Chris" };
-            var child2 = new Person { Name = "Anna" };
+            var parent = new DependencyInversionPrinciple.Person { Name = "John" };
+            var child1 = new DependencyInversionPrinciple.Person { Name = "Chris" };
+            var child2 = new DependencyInversionPrinciple.Person { Name = "Anna" };
 
             var Relationships = new Relationships();
             Relationships.AddParentAndChild(parent, child1);
@@ -258,7 +260,23 @@ namespace DesignPatterns
 
         private static void FacetedBuilderPattern()
         {
+            var pb = new Faceted_PersonBuilder();
+            // Implicit call from pb to Faceteed_Person
+            Faceted_Person person = pb.Works.At("Engelmann GmbH")
+                                            .AsA("Software Engineer")
+                                            .Earns(100000)
+                                      .Lives.At("Goethe str 5")
+                                            .WithPostCode("69181")
+                                            .In("Leimen");
 
+            Console.WriteLine(person.ToString());
+
+        }
+
+        private static void BuilderPatternCodingExercise()
+        {
+            var cb = new CodeBuilder("Person").AddField("Name", "string").AddField("Age", "int");
+            Console.WriteLine(cb);
         }
 
 
