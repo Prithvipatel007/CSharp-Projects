@@ -3,6 +3,8 @@ using DesignPatterns.DependencyInversionPrinciple;
 using DesignPatterns.InterfaceSegregationPrinciple;
 using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
+using DesignPatterns.OpenClosePrinciple;
+using DesignPatterns.SingleRespPrinciple;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,17 +48,27 @@ namespace DesignPatterns
 
         private static Dictionary<Pattern, Action> _PatternDict = new Dictionary<Pattern, Action>()
         {
-            { Pattern.SingleResponsibilityPrinciple, SingleResponsibilityPrinciple },
-            { Pattern.OpenClosedPrinciple, OpenClosedPrinciple },
-            { Pattern.LiskovSubstitutionPrinciple, LiskovSubstitutionPrinciple},
-            { Pattern.InterfaceSegregationPrinciple, InterfaceSegregationPrinciple},
-            { Pattern.DependencyInversionPrinciple, DependencyInversionPrinciple},
-            { Pattern.BuilderPattern, BuilderPattern},
-            { Pattern.BuilderPatternWithRecursiveGenerics, BuilderPatternWithRecursiveGenerics},
-            { Pattern.StepwiseBuilderPattern, StepwiseBuilderPattern},
-            { Pattern.FunctionalBuilderPattern, FunctionalBuilderPattern},
-            { Pattern.FacetedBuilderPattern, FacetedBuilderPattern},
-            { Pattern.BuilderPatternCodingExercise, BuilderPatternCodingExercise}
+            { Pattern.SingleResponsibilityPrinciple,    SRP_Main.SingleResponsibilityPrinciple },
+            { Pattern.OpenClosedPrinciple,              OCP_Main.OpenClosedPrinciple },
+            { Pattern.LiskovSubstitutionPrinciple,      LSP_Main.LiskovSubstitutionPrinciple},
+            { Pattern.InterfaceSegregationPrinciple,    ISP_Main.InterfaceSegregationPrinciple},
+            { Pattern.DependencyInversionPrinciple,     DIP_Main.DependencyInversionPrinciple},
+            /*
+             * Creational patterns
+             */
+            /*
+             * Builder Patters
+             */
+            { Pattern.BuilderPattern,                       Builder_Main.BuilderPattern},
+            { Pattern.BuilderPatternWithRecursiveGenerics,  Builder_Main.BuilderPatternWithRecursiveGenerics},
+            { Pattern.StepwiseBuilderPattern,               Builder_Main.StepwiseBuilderPattern},
+            { Pattern.FunctionalBuilderPattern,             Builder_Main.FunctionalBuilderPattern},
+            { Pattern.FacetedBuilderPattern,                Builder_Main.FacetedBuilderPattern},
+            { Pattern.BuilderPatternCodingExercise,         Builder_Main.BuilderPatternCodingExercise}
+            /*
+             * Factory Patterns
+             */
+
         };
 
         #endregion
@@ -73,217 +85,5 @@ namespace DesignPatterns
                 throw new ArgumentOutOfRangeException(nameof(_Pattern));
             }
         }
-
-        #region Private Methods
-
-        #region Single Responsibility Principle
-        private static void SingleResponsibilityPrinciple()
-        {
-            var j = new Journal();
-            j.AddEntry("I cried today");
-            j.AddEntry("I ate a bug");
-
-            Console.WriteLine(j);
-
-            var p = new Persistence();
-            var filename = @"C:\temp\journal.txt";
-            p.SaveToFile(j, filename, true);
-            Process.Start(filename);
-        }
-        #endregion
-
-        #region Open/Closed Principle
-
-        private static void OpenClosedPrinciple()
-        {
-            var apple = new Product("Apple", Colors.Red, Sizes.Small);
-            var tree = new Product("Tree", Colors.Green, Sizes.Large);
-            var house = new Product("House", Colors.Green, Sizes.Medium);
-
-            Product[] products = { apple, tree, house };
-
-            var pf = new ProductFilter();
-            Console.WriteLine("Green products (old) : ");
-
-            foreach (var p in pf.FilterByColor(products, Colors.Green))
-            {
-                Console.WriteLine($" {p.Name} is Green");
-            }
-            /*
-             * Better Filter
-             */
-            var bf = new BetterFilter();
-            Console.WriteLine("Green products (new) : ");
-            foreach(var item in bf.Filter(products, new ColorSpecification(Colors.Green)))
-            {
-                Console.WriteLine($" {item.Name} is Green");
-            }
-
-            Console.WriteLine("Filter by size : ");
-            foreach (var item in bf.Filter(products, new SizeSpecification(Sizes.Small)))
-            {
-                Console.WriteLine($" {item.Name} is Small");
-            }
-
-            Console.WriteLine("Filter by size and color : ");
-            foreach (var item in bf.Filter(products, new AndSpecification<Product>(new ColorSpecification(Colors.Green),
-                                                                                    new SizeSpecification(Sizes.Medium))))
-            {
-                Console.WriteLine($" {item.Name} is Green and Medium");
-            }
-
-        }
-
-        #endregion
-
-        #region Liskov Substitution Principle
-
-        public static int Area(Rectangle r) => r.Width * r.Height;
-        private static void LiskovSubstitutionPrinciple()
-        {
-            Rectangle rc = new Rectangle(5, 10);
-            Console.WriteLine($"Area of Rectangle : {Area(rc)}");
-
-            Rectangle sq = new Square();
-            sq.Width = 5;
-            Console.WriteLine($"Area of Square : {Area(sq)}");
-        }
-
-        #endregion
-
-        #region Interface Segregation Principle
-
-        private static void InterfaceSegregationPrinciple()
-        {
-            var printer = new Printer();
-            var scanner = new Scanner();
-            var fax = new FaxMachine();
-
-            printer.Print(new Document("Printer", "Printer Content"));
-            scanner.Scan(new Document("Scanner", "Scanner Content"));
-            fax.Fax(new Document("Fax", "Fax Content"));
-
-            var multiPrinter = new MultiPrinter(printer, scanner, fax);
-            multiPrinter.Print(new Document("MultiPrinter", "Printing Content"));
-            multiPrinter.Scan(new Document("MultiPrinter", "Scannning Content"));
-            multiPrinter.Fax(new Document("MultiPrinter", "Faxing Content"));
-        }
-
-
-        #endregion
-
-        #region Dependency Inversion Principle
-
-        private static void DependencyInversionPrinciple()
-        {
-            var parent = new DependencyInversionPrinciple.Person { Name = "John" };
-            var child1 = new DependencyInversionPrinciple.Person { Name = "Chris" };
-            var child2 = new DependencyInversionPrinciple.Person { Name = "Anna" };
-
-            var Relationships = new Relationships();
-            Relationships.AddParentAndChild(parent, child1);
-            Relationships.AddParentAndChild(parent, child2);
-
-            // Now we want to perform the research. Basically, we want to take the low level module 
-            // and we want to somehow access it to a high level research module. 
-            // So, one of the ways - not the best way - is to simply allow the high level module to access some of the internals
-            // of the low level module by giving it the list of relations. 
-
-            new Research(Relationships);
-        }
-
-        #endregion
-
-
-        #region Creational patterns
-
-        #region Builder Pattern
-        
-        private static void BuilderPattern()
-        {
-            var hello = "hello";
-
-            // We have this text and we want to turn it into a html paragraph. 
-            var sb = new StringBuilder();
-            sb.Append("<p>");
-            sb.Append(hello);
-            sb.Append("</p>");
-            Console.WriteLine(sb);
-
-            var words = new[] {"hello", "world" };
-            sb.Clear();
-
-            sb.Append("<ul>");
-            foreach(var word in words)
-            {
-                sb.AppendFormat($"<li>{word}</li>");
-            }
-            sb.Append("</ul>");
-
-            Console.WriteLine(sb);
-
-            /*
-             * With Builder
-             */
-            var builder = new HtmlBuilder("ul");
-            builder.AddChild("li", "Hello")
-                   .AddChild("li", "World");
-
-            Console.WriteLine(builder.ToString());
-        }
-
-        private static void BuilderPatternWithRecursiveGenerics()
-        {
-            var me = CreationalPatterns.BuilderPattern.Person.New
-                        .Called("Prithvi")
-                        .WorksAsA("Developer")
-                        .Build();
-
-            Console.WriteLine(me.ToString());
-        }
-
-        private static void StepwiseBuilderPattern()
-        {
-            var car = CarBuilder.Create()   // we get ISpecifyCarType
-                                .OfCarType(CarType.Crossover) // here, we get ISpecifyWheelType
-                                .WithWheels(19)  // here, we get IBuildCar
-                                .Build();  // Here we get car
-        }
-
-        private static void FunctionalBuilderPattern()
-        {
-            var person = new FuncPersonBuilder()
-                            .WorkAs("Developer")
-                            .Called("Prithvi")
-                            .Build();
-        }
-
-        private static void FacetedBuilderPattern()
-        {
-            var pb = new Faceted_PersonBuilder();
-            // Implicit call from pb to Faceteed_Person
-            Faceted_Person person = pb.Works.At("Engelmann GmbH")
-                                            .AsA("Software Engineer")
-                                            .Earns(100000)
-                                      .Lives.At("Goethe str 5")
-                                            .WithPostCode("69181")
-                                            .In("Leimen");
-
-            Console.WriteLine(person.ToString());
-
-        }
-
-        private static void BuilderPatternCodingExercise()
-        {
-            var cb = new CodeBuilder("Person").AddField("Name", "string").AddField("Age", "int");
-            Console.WriteLine(cb);
-        }
-
-
-        #endregion
-
-        #endregion
-
-        #endregion
     }
 }

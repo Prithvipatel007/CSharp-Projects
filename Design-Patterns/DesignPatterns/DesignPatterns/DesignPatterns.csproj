@@ -45,13 +45,18 @@
   <ItemGroup>
     <Compile Include="CreationalPatterns\BuilderPattern\BuilderCodingExercise.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\BuilderPatterUsingGenerics.cs" />
+    <Compile Include="CreationalPatterns\BuilderPattern\Builder_Main.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\FacetedBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\FunctionalBuilder.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\HtmlBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\StepwiseBuilderPattern.cs" />
     <Compile Include="DependencyInversionPrinciple\DependencyInversionprinciple.cs" />
+    <Compile Include="DependencyInversionPrinciple\DIP_Main.cs" />
     <Compile Include="InterfaceSegregationPrinciple\Interface.cs" />
+    <Compile Include="InterfaceSegregationPrinciple\ISP_Main.cs" />
     <Compile Include="LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple.cs" />
+    <Compile Include="LiskovSubstitutionPrinciple\LSP_Main.cs" />
+    <Compile Include="OpenClosePrinciple\OCP_Main.cs" />
     <Compile Include="OpenClosePrinciple\Specs\AndSpecification.cs" />
     <Compile Include="OpenClosePrinciple\Filter\BetterFilter.cs" />
     <Compile Include="OpenClosePrinciple\Specs\ColorSpecification.cs" />
@@ -62,6 +67,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleRespPrinciple\SingleResponsibilityPrinciple.cs" />
+    <Compile Include="SingleRespPrinciple\SRP_Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
