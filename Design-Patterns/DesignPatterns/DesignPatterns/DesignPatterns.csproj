@@ -50,6 +50,13 @@
     <Compile Include="CreationalPatterns\BuilderPattern\FunctionalBuilder.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\HtmlBuilderPattern.cs" />
     <Compile Include="CreationalPatterns\BuilderPattern\StepwiseBuilderPattern.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\AbstractFactoryPattern.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\AbstractFactoryWithOCP.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\AsyncFactoryMethod.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\Factory_Main.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\InnerFactory.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\ObjectTrackingAndBulkReplacement.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\SimpleFactoryMethod.cs" />
     <Compile Include="DependencyInversionPrinciple\DependencyInversionprinciple.cs" />
     <Compile Include="DependencyInversionPrinciple\DIP_Main.cs" />
     <Compile Include="InterfaceSegregationPrinciple\Interface.cs" />
