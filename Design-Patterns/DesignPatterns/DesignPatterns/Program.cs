@@ -25,7 +25,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.AbstractFactoryWithOCPPattern;
+        private static Pattern _Pattern = Pattern.FactoryCodingExercise;
 
         #region Enum for Patterns
         public enum Pattern
@@ -46,7 +46,8 @@ namespace DesignPatterns
             ObjectTrackingAndBulkReplacementFactoryPattern,
             InnerFactory,
             AbstractFactoryPattern,
-            AbstractFactoryWithOCPPattern
+            AbstractFactoryWithOCPPattern,
+            FactoryCodingExercise
         }
         #endregion
 
@@ -80,7 +81,8 @@ namespace DesignPatterns
             { Pattern.ObjectTrackingAndBulkReplacementFactoryPattern,   Factory_Main.ObjectTrackingAndBulkReplacementFactoryPattern },
             { Pattern.InnerFactory,                                     Factory_Main.InnerFactoryPattern},
             { Pattern.AbstractFactoryPattern,                           Factory_Main.AbstractFactoryPattern},
-            { Pattern.AbstractFactoryWithOCPPattern,                    Factory_Main.AbstractFactoryWithOCPPattern}
+            { Pattern.AbstractFactoryWithOCPPattern,                    Factory_Main.AbstractFactoryWithOCPPattern},
+            { Pattern.FactoryCodingExercise,                            Factory_Main.FactoryCodingExercise}
         };
 
         #endregion

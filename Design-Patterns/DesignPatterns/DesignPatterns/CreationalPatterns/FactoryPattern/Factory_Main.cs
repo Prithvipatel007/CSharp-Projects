@@ -63,6 +63,13 @@ namespace DesignPatterns.CreationalPatterns.FactoryPattern
 
         }
 
+        public static void FactoryCodingExercise()
+        {
+            var f1 = new PersonFactory();
+            f1.CreatePerson("John");
+            f1.CreatePerson("Jane");
+            Console.WriteLine(f1.Info);
+        }
 
     }
 }

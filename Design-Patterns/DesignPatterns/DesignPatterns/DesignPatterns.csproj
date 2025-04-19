@@ -53,6 +53,7 @@
     <Compile Include="CreationalPatterns\FactoryPattern\AbstractFactoryPattern.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\AbstractFactoryWithOCP.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\AsyncFactoryMethod.cs" />
+    <Compile Include="CreationalPatterns\FactoryPattern\FactoryCodingExercise.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\Factory_Main.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\InnerFactory.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\ObjectTrackingAndBulkReplacement.cs" />
