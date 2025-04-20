@@ -58,6 +58,13 @@
     <Compile Include="CreationalPatterns\FactoryPattern\InnerFactory.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\ObjectTrackingAndBulkReplacement.cs" />
     <Compile Include="CreationalPatterns\FactoryPattern\SimpleFactoryMethod.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\CopyConstructor.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\ExplicitDeepCopyExample.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\IClonableIsBad.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\PrototypeCodingExercise.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\PrototypeInheritance.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\Prototype_Main.cs" />
+    <Compile Include="CreationalPatterns\PrototypePattern\SerializerPrototype.cs" />
     <Compile Include="DependencyInversionPrinciple\DependencyInversionprinciple.cs" />
     <Compile Include="DependencyInversionPrinciple\DIP_Main.cs" />
     <Compile Include="InterfaceSegregationPrinciple\Interface.cs" />

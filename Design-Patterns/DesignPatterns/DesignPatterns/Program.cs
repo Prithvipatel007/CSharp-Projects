@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.CreationalPatterns.BuilderPattern;
 using DesignPatterns.CreationalPatterns.FactoryPattern;
+using DesignPatterns.CreationalPatterns.PrototypePattern;
 using DesignPatterns.DependencyInversionPrinciple;
 using DesignPatterns.InterfaceSegregationPrinciple;
 using DesignPatterns.LiskovSubstitutionPrinciple;
@@ -25,7 +26,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.FactoryCodingExercise;
+        private static Pattern _Pattern = Pattern.PrototypeCodingExercise;
 
         #region Enum for Patterns
         public enum Pattern
@@ -35,19 +36,29 @@ namespace DesignPatterns
             LiskovSubstitutionPrinciple,
             InterfaceSegregationPrinciple,
             DependencyInversionPrinciple,
+            // Builder
             BuilderPattern,
             BuilderPatternWithRecursiveGenerics,
             StepwiseBuilderPattern,
             FunctionalBuilderPattern,
             FacetedBuilderPattern,
             BuilderPatternCodingExercise,
+            // Factory
             SimpleFactoryMethod,
             AsyncFactoryMethod,
             ObjectTrackingAndBulkReplacementFactoryPattern,
             InnerFactory,
             AbstractFactoryPattern,
             AbstractFactoryWithOCPPattern,
-            FactoryCodingExercise
+            FactoryCodingExercise,
+            // Prototype
+            IClonableIsBadExample,
+            CopyConstructorPrototypePattern,
+            ExplicitDeepCopyPrototypePattern,
+            PrototypeInheritance,
+            SerializerPrototypePattern,
+            PrototypeCodingExercise
+
         }
         #endregion
 
@@ -82,7 +93,16 @@ namespace DesignPatterns
             { Pattern.InnerFactory,                                     Factory_Main.InnerFactoryPattern},
             { Pattern.AbstractFactoryPattern,                           Factory_Main.AbstractFactoryPattern},
             { Pattern.AbstractFactoryWithOCPPattern,                    Factory_Main.AbstractFactoryWithOCPPattern},
-            { Pattern.FactoryCodingExercise,                            Factory_Main.FactoryCodingExercise}
+            { Pattern.FactoryCodingExercise,                            Factory_Main.FactoryCodingExercise},
+            /*
+             * Prototype Patterns 
+             */
+            { Pattern.IClonableIsBadExample,                            Prototype_Main.IClonableIsBadExample},
+            { Pattern.CopyConstructorPrototypePattern,                  Prototype_Main.CopyConstructorExample},
+            { Pattern.ExplicitDeepCopyPrototypePattern,                 Prototype_Main.ExplicitDeepCopy},
+            { Pattern.PrototypeInheritance,                             Prototype_Main.PrototypeInheritance},
+            { Pattern.SerializerPrototypePattern,                       Prototype_Main.SerializerPrototype},
+            { Pattern.PrototypeCodingExercise,                          Prototype_Main.PrototypeCodingExercise},
         };
 
         #endregion
