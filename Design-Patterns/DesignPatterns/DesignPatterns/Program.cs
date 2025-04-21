@@ -8,6 +8,7 @@ using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
 using DesignPatterns.OpenClosePrinciple;
 using DesignPatterns.SingleRespPrinciple;
+using DesignPatterns.StructuralPatterns.AdaptorPatterns;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.AmbientContextPattern;
+        private static Pattern _Pattern = Pattern.DIAdaptorPattern;
 
         #region Enum for Patterns
         public enum Pattern
@@ -65,6 +66,10 @@ namespace DesignPatterns
             MonostatePattern,
             PreThreadedSingletonPattern,
             AmbientContextPattern,
+            // Adaptor
+            VectorRasterPattern,
+            GenericValueAdaptorPattern,
+            DIAdaptorPattern
 
         }
         #endregion
@@ -117,6 +122,12 @@ namespace DesignPatterns
             { Pattern.MonostatePattern,                                 Singleton_Main.MonostatePattern},
             { Pattern.PreThreadedSingletonPattern,                      Singleton_Main.PreThreadedSingletonPattern},
             { Pattern.AmbientContextPattern,                            Singleton_Main.AmbientContextPattern},
+            /*
+             * Adaptor Patterns
+             */
+            { Pattern.VectorRasterPattern,                              Adaptor_Main.VectorRasterPattern },
+            { Pattern.GenericValueAdaptorPattern,                       Adaptor_Main.GenericValueAdaptorPattern },
+            { Pattern.DIAdaptorPattern,                                 Adaptor_Main.DIAdaptorPattern }
         };
 
         #endregion

@@ -168,6 +168,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleRespPrinciple\SingleResponsibilityPrinciple.cs" />
     <Compile Include="SingleRespPrinciple\SRP_Main.cs" />
+    <Compile Include="StructuralPatterns\AdaptorPatterns\Adaptor_Main.cs" />
+    <Compile Include="StructuralPatterns\AdaptorPatterns\DIAdaptorPattern.cs" />
+    <Compile Include="StructuralPatterns\AdaptorPatterns\GenericValueAdaptorPattern.cs" />
+    <Compile Include="StructuralPatterns\AdaptorPatterns\VectorRasterPattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
