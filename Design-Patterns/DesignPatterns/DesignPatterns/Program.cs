@@ -1,12 +1,14 @@
 ﻿using DesignPatterns.CreationalPatterns.BuilderPattern;
 using DesignPatterns.CreationalPatterns.FactoryPattern;
 using DesignPatterns.CreationalPatterns.PrototypePattern;
+using DesignPatterns.CreationalPatterns.SingletonPattern;
 using DesignPatterns.DependencyInversionPrinciple;
 using DesignPatterns.InterfaceSegregationPrinciple;
 using DesignPatterns.LiskovSubstitutionPrinciple;
 using DesignPatterns.OpenClosedPrinciple.Filter;
 using DesignPatterns.OpenClosePrinciple;
 using DesignPatterns.SingleRespPrinciple;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,7 +28,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.PrototypeCodingExercise;
+        private static Pattern _Pattern = Pattern.AmbientContextPattern;
 
         #region Enum for Patterns
         public enum Pattern
@@ -57,7 +59,12 @@ namespace DesignPatterns
             ExplicitDeepCopyPrototypePattern,
             PrototypeInheritance,
             SerializerPrototypePattern,
-            PrototypeCodingExercise
+            PrototypeCodingExercise,
+            // Singleton
+            SingletonImplementation,
+            MonostatePattern,
+            PreThreadedSingletonPattern,
+            AmbientContextPattern,
 
         }
         #endregion
@@ -103,6 +110,13 @@ namespace DesignPatterns
             { Pattern.PrototypeInheritance,                             Prototype_Main.PrototypeInheritance},
             { Pattern.SerializerPrototypePattern,                       Prototype_Main.SerializerPrototype},
             { Pattern.PrototypeCodingExercise,                          Prototype_Main.PrototypeCodingExercise},
+            /*
+             * Singleton Patterns
+             */
+            { Pattern.SingletonImplementation,                          Singleton_Main.SingletonImplementation},
+            { Pattern.MonostatePattern,                                 Singleton_Main.MonostatePattern},
+            { Pattern.PreThreadedSingletonPattern,                      Singleton_Main.PreThreadedSingletonPattern},
+            { Pattern.AmbientContextPattern,                            Singleton_Main.AmbientContextPattern},
         };
 
         #endregion
@@ -119,5 +133,8 @@ namespace DesignPatterns
                 throw new ArgumentOutOfRangeException(nameof(_Pattern));
             }
         }
+
     }
+
+
 }
