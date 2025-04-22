@@ -37,7 +37,7 @@ namespace DesignPatterns.StructuralPatterns.AdaptorPatterns
             b.RegisterType<SaveCommand>().As<ICommand>().WithMetadata("Name","Save");
             b.RegisterType<OpenCommand>().As<ICommand>().WithMetadata("Name", "Open");
             //b.RegisterType<Button>();
-            //b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd));
+            //b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd)); 
             b.RegisterAdapter<Meta<ICommand>, Button>( cmd => new Button(cmd.Value, (string)cmd.Metadata["Name"]));
             b.RegisterType<Editor>();
 

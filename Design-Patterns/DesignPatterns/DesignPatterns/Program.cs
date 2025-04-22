@@ -9,6 +9,7 @@ using DesignPatterns.OpenClosedPrinciple.Filter;
 using DesignPatterns.OpenClosePrinciple;
 using DesignPatterns.SingleRespPrinciple;
 using DesignPatterns.StructuralPatterns.AdaptorPatterns;
+using DesignPatterns.StructuralPatterns.BridgePatterns;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.DIAdaptorPattern;
+        private static Pattern _Pattern = Pattern.BridgeCodingExercise;
 
         #region Enum for Patterns
         public enum Pattern
@@ -70,7 +71,11 @@ namespace DesignPatterns
             VectorRasterPattern,
             GenericValueAdaptorPattern,
             DIAdaptorPattern,
-            AdaptorCodingExercise
+            AdaptorCodingExercise,
+            // Bridge
+            BridgePattern,
+            DIBridgePattern,
+            BridgeCodingExercise
 
         }
         #endregion
@@ -130,6 +135,12 @@ namespace DesignPatterns
             { Pattern.GenericValueAdaptorPattern,                       Adaptor_Main.GenericValueAdaptorPattern },
             { Pattern.DIAdaptorPattern,                                 Adaptor_Main.DIAdaptorPattern },
             { Pattern.AdaptorCodingExercise,                            Adaptor_Main.AdaptorCodingExercise },
+            /*
+             * Bridge Patterns
+             */
+            { Pattern.BridgePattern,                                    Bridge_Main.BridgePattern},
+            { Pattern.DIBridgePattern,                                  Bridge_Main.DIBridgePattern},
+            { Pattern.BridgeCodingExercise,                             Bridge_Main.BridgeCodingExercise},
         };
 
         #endregion
