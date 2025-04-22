@@ -53,5 +53,12 @@ namespace DesignPatterns.StructuralPatterns.AdaptorPatterns
             }
         }
 
+        public static void AdaptorCodingExercise()
+        {
+            var square = new SquareToRectangleAdapter(new Square(5));
+            int area = square.Area();
+
+        }
+
     }
 }

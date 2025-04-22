@@ -69,7 +69,8 @@ namespace DesignPatterns
             // Adaptor
             VectorRasterPattern,
             GenericValueAdaptorPattern,
-            DIAdaptorPattern
+            DIAdaptorPattern,
+            AdaptorCodingExercise
 
         }
         #endregion
@@ -127,7 +128,8 @@ namespace DesignPatterns
              */
             { Pattern.VectorRasterPattern,                              Adaptor_Main.VectorRasterPattern },
             { Pattern.GenericValueAdaptorPattern,                       Adaptor_Main.GenericValueAdaptorPattern },
-            { Pattern.DIAdaptorPattern,                                 Adaptor_Main.DIAdaptorPattern }
+            { Pattern.DIAdaptorPattern,                                 Adaptor_Main.DIAdaptorPattern },
+            { Pattern.AdaptorCodingExercise,                            Adaptor_Main.AdaptorCodingExercise },
         };
 
         #endregion
