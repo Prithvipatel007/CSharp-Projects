@@ -11,6 +11,7 @@ using DesignPatterns.SingleRespPrinciple;
 using DesignPatterns.StructuralPatterns.AdaptorPatterns;
 using DesignPatterns.StructuralPatterns.BridgePatterns;
 using DesignPatterns.StructuralPatterns.CompositePatterns;
+using DesignPatterns.StructuralPatterns.DecoratorPatterns;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.CompositeCodingExercise;
+        private static Pattern _Pattern = Pattern.DynamicDecoratorComposition;
 
         #region Enum for Patterns
         public enum Pattern
@@ -81,7 +82,12 @@ namespace DesignPatterns
             CompositeGeometricShapes,
             CompositeNeuralNetworks,
             CompositeSpecification,
-            CompositeCodingExercise
+            CompositeCodingExercise,
+            // Decorator
+            DecoratorCustomStringBuilder,
+            DecoratorAdaptorPattern,
+            DecoratorMultipleInheritanceWithInterafaces,
+            DynamicDecoratorComposition,
 
         }
         #endregion
@@ -130,10 +136,10 @@ namespace DesignPatterns
             /*
              * Singleton Patterns
              */
-            { Pattern.SingletonImplementation,                          Singleton_Main.SingletonImplementation},
-            { Pattern.MonostatePattern,                                 Singleton_Main.MonostatePattern},
-            { Pattern.PreThreadedSingletonPattern,                      Singleton_Main.PreThreadedSingletonPattern},
-            { Pattern.AmbientContextPattern,                            Singleton_Main.AmbientContextPattern},
+            { Pattern.SingletonImplementation,                          Singleton_Main.SingletonImplementation },
+            { Pattern.MonostatePattern,                                 Singleton_Main.MonostatePattern },
+            { Pattern.PreThreadedSingletonPattern,                      Singleton_Main.PreThreadedSingletonPattern },
+            { Pattern.AmbientContextPattern,                            Singleton_Main.AmbientContextPattern },
             /*
              * Adaptor Patterns
              */
@@ -144,16 +150,23 @@ namespace DesignPatterns
             /*
              * Bridge Patterns
              */
-            { Pattern.BridgePattern,                                    Bridge_Main.BridgePattern},
-            { Pattern.DIBridgePattern,                                  Bridge_Main.DIBridgePattern},
-            { Pattern.BridgeCodingExercise,                             Bridge_Main.BridgeCodingExercise},
+            { Pattern.BridgePattern,                                    Bridge_Main.BridgePattern },
+            { Pattern.DIBridgePattern,                                  Bridge_Main.DIBridgePattern },
+            { Pattern.BridgeCodingExercise,                             Bridge_Main.BridgeCodingExercise },
             /*
              * Composite Patterns
              */
-            {Pattern.CompositeGeometricShapes,                          Composite_Main.GeometricShapes},
+            {Pattern.CompositeGeometricShapes,                          Composite_Main.GeometricShapes },
             {Pattern.CompositeNeuralNetworks,                           Composite_Main.NeuralNetworks },
             {Pattern.CompositeSpecification,                            Composite_Main.CompositeSpecification },
             {Pattern.CompositeCodingExercise,                           Composite_Main.CompositeCodingExercise },
+            /*
+             * Decorator Patterns
+             */
+            {Pattern.DecoratorCustomStringBuilder,                      Decorator_Main.CustomStringBuilder },
+            {Pattern.DecoratorAdaptorPattern,                           Decorator_Main.DecoratorAdaptorPattern },
+            {Pattern.DecoratorMultipleInheritanceWithInterafaces,       Decorator_Main.DecoratorMultipleInheritanceWithInterfaces },
+            {Pattern.DynamicDecoratorComposition,                       Decorator_Main.DynamicDecoratorComposition },
         };
 
         #endregion

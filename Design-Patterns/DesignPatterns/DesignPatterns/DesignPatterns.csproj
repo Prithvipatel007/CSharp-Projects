@@ -181,6 +181,11 @@
     <Compile Include="StructuralPatterns\CompositePatterns\Composite_Main.cs" />
     <Compile Include="StructuralPatterns\CompositePatterns\GeometricShapes.cs" />
     <Compile Include="StructuralPatterns\CompositePatterns\NeuralNetworks.cs" />
+    <Compile Include="StructuralPatterns\DecoratorPatterns\CustomStringBuilder.cs" />
+    <Compile Include="StructuralPatterns\DecoratorPatterns\DecoratorAdaptorPattern.cs" />
+    <Compile Include="StructuralPatterns\DecoratorPatterns\Decorator_Main.cs" />
+    <Compile Include="StructuralPatterns\DecoratorPatterns\DynamicDecoratorDecomposition.cs" />
+    <Compile Include="StructuralPatterns\DecoratorPatterns\MultipleInheritancesWithInterfaces.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -191,6 +196,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
