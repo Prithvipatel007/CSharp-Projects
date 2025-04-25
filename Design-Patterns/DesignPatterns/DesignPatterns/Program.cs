@@ -10,6 +10,7 @@ using DesignPatterns.OpenClosePrinciple;
 using DesignPatterns.SingleRespPrinciple;
 using DesignPatterns.StructuralPatterns.AdaptorPatterns;
 using DesignPatterns.StructuralPatterns.BridgePatterns;
+using DesignPatterns.StructuralPatterns.CompositePatterns;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace DesignPatterns
         /*
          * Switch to select the pattern to demonstrate
          */
-        private static Pattern _Pattern = Pattern.BridgeCodingExercise;
+        private static Pattern _Pattern = Pattern.CompositeCodingExercise;
 
         #region Enum for Patterns
         public enum Pattern
@@ -75,7 +76,12 @@ namespace DesignPatterns
             // Bridge
             BridgePattern,
             DIBridgePattern,
-            BridgeCodingExercise
+            BridgeCodingExercise,
+            // Composite
+            CompositeGeometricShapes,
+            CompositeNeuralNetworks,
+            CompositeSpecification,
+            CompositeCodingExercise
 
         }
         #endregion
@@ -141,6 +147,13 @@ namespace DesignPatterns
             { Pattern.BridgePattern,                                    Bridge_Main.BridgePattern},
             { Pattern.DIBridgePattern,                                  Bridge_Main.DIBridgePattern},
             { Pattern.BridgeCodingExercise,                             Bridge_Main.BridgeCodingExercise},
+            /*
+             * Composite Patterns
+             */
+            {Pattern.CompositeGeometricShapes,                          Composite_Main.GeometricShapes},
+            {Pattern.CompositeNeuralNetworks,                           Composite_Main.NeuralNetworks },
+            {Pattern.CompositeSpecification,                            Composite_Main.CompositeSpecification },
+            {Pattern.CompositeCodingExercise,                           Composite_Main.CompositeCodingExercise },
         };
 
         #endregion

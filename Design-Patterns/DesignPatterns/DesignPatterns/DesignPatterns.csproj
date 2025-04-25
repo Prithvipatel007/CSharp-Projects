@@ -176,6 +176,11 @@
     <Compile Include="StructuralPatterns\BridgePatterns\BridgeCodingExercise.cs" />
     <Compile Include="StructuralPatterns\BridgePatterns\BridgePattern.cs" />
     <Compile Include="StructuralPatterns\BridgePatterns\Bridge_Main.cs" />
+    <Compile Include="StructuralPatterns\CompositePatterns\CompositeCodingExercise.cs" />
+    <Compile Include="StructuralPatterns\CompositePatterns\CompositeSpecification.cs" />
+    <Compile Include="StructuralPatterns\CompositePatterns\Composite_Main.cs" />
+    <Compile Include="StructuralPatterns\CompositePatterns\GeometricShapes.cs" />
+    <Compile Include="StructuralPatterns\CompositePatterns\NeuralNetworks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
