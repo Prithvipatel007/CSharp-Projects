@@ -38,24 +38,24 @@ namespace DesignPatterns.StructuralPatterns.DecoratorPatterns
         // Decorator on the top of decorator
         public static void DynamicDecoratorComposition()
         {
-            //var sq = new DDDSquare(1.23f);
-            //Console.WriteLine(sq.AsString());
+            var sq = new DDDSquare(1.23f);
+            Console.WriteLine(sq.AsString());
 
-            //var redSquare = new ColoredShape(sq, "Red");
-            //Console.WriteLine(redSquare.AsString());
+            var redSquare = new ColoredShape(sq, "Red");
+            Console.WriteLine(redSquare.AsString());
 
-            //var transparent = new TransparentShape(redSquare, 0.8f);
-            //Console.WriteLine(transparent.AsString());
+            var transparent = new TransparentShape(redSquare, 0.8f);
+            Console.WriteLine(transparent.AsString());
+
+            /*
+             * Repetation problem
+             */
 
             var circle = new DDDCircle(2);
             var colored1 = new ColoredShape(circle, "red");
             var colored2 = new ColoredShape(colored1, "blue");
 
             Console.WriteLine(colored2.AsString());
-
         }
-
-
-
     }
 }

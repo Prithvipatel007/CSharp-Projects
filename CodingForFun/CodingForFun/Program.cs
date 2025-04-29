@@ -21,7 +21,7 @@ namespace CodingForFun
             };
 
             var reviewCounts = new Dictionary<(int ReviewerId, int AuthorId), int>();
-            var strategy = new RandomizedReviewerAssignment(people);
+            var strategy = new BacktrackingReviewerStrategy(people);
             var scheduler = new ReviewScheduler(strategy);
 
             int totalRounds = 100;
